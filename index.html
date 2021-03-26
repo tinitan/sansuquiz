@@ -28,8 +28,34 @@ background: #D8F6CE;
 border-radius: 5px;
     }
 
- 
+#myAnimation {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: red;
+}
+
 </style>
+
+<script>
+var id = null;
+function calcone() {
+  var elem = document.getElementById("myAnimation");   
+  var pos = 0;
+  clearInterval(id);
+  id = setInterval(frame, 10);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(id);
+    } else {
+      pos++; 
+      elem.style.top = pos + 'px'; 
+      elem.style.left = pos + 'px'; 
+    }
+  }
+}
+</script>
+
 
 <script>
     // var total = 0; 정답 결과 합계 용 
@@ -64,25 +90,12 @@ border-radius: 5px;
             else if(parseInt(useranswer)==correctanswer) // 정답
             {
                 total += 1;
-                questionArray[i].style.textDecoration = "none";
+                // questionArray[i].style.textDecoration = "none";
                 oxArray[i].innerHTML ="O";
 
-               if ((total <2)) {//평가를 위한 조건문
-document.getElementById("low").innerHTML="조금만 더 노력을";
-    } else {
 
-    if ( total >1 && total <3)
-
-        document.getElementById("low").innerHTML="잘 합니다";
-
-    else // 실행될 실행문이 한 줄뿐이라면 중괄호({})를 생략할 수 있음.
-
-       document.getElementById("low").innerHTML="우수합니다";
-
-}
-
-//평가를 위한 조건문 끝
             }
+
             else // 오답
             {
                 total += 0;
@@ -93,6 +106,25 @@ document.getElementById("low").innerHTML="조금만 더 노력을";
 
           document.getElementById("score").innerHTML=total;
 
+          
+          if (total <6) {//평가를 위한 조건문
+           document.getElementById("low").innerHTML="조금만 더 노력을";
+           calcone()
+
+          }else {
+
+           if ( total >5 && total <9)
+{
+             document.getElementById("low").innerHTML="잘 합니다";
+             calctwo()
+         }
+           else // 실행될 실행문이 한 줄뿐이라면 중괄호({})를 생략할 수 있음.
+{
+             document.getElementById("low").innerHTML="우수합니다";
+             calcthree()
+}
+           }
+
         }
 
 
@@ -101,6 +133,8 @@ document.getElementById("low").innerHTML="조금만 더 노력을";
     {
         let questionArray=document.getElementsByClassName("question");
         let answerArray=document.getElementsByClassName("answer");
+        let oxArr=document.getElementsByClassName("ox");
+
         for(i=0; i<questionArray.length; i++)
         {
             let num1 = Math.floor(Math.random()*20)+1;
@@ -115,18 +149,71 @@ document.getElementById("low").innerHTML="조금만 더 노력을";
             //     case 2: operator = "*"; break;
             //     case 3: operator = "/"; break;
             // }
-
+           
             questionArray[i].innerHTML = num1 + operator + num2;
-            questionArray[i].style.textDecoration =  "none";
-            answerArray[i].value = ""; // 초기화
-            document.getElementById("score").innerHTML = 0; // 초기화
-document.getElementById("low").innerHTML = ""; // 초기화
+            // questionArray[i].style.textDecoration =  "none";
 
+            answerArray[i].value = ""; // 초기화
+            oxArr[i].innerHTML = ""; // 초기화? 왜 안될까?
+          
+            document.getElementById("score").innerHTML = ""; // 초기화
+            document.getElementById("low").innerHTML = ""; // 초기화
+            document.getElementById("exm").innerHTML=""; // 초기화
             
         }
     }
 
+var id = null;
+function calcone() {
+  var elem = document.getElementById("myAnimation");   
+  var pos = 0;
+  clearInterval(id);
+  id = setInterval(frame, 10);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(id);
+    } else {
+      pos++; 
+      elem.style.top = pos + 'px'; 
+      elem.style.left = pos + 'px'; 
+    }
+  }
+}
+    //  function calcone()
+    //  {
+    // // document.getElementById("exm").innerHTML="'<img src="bee.png">'";
+    //  document.getElementById("beed").innerHTML="'<div class="bee"><IMG src="bee.png"><div>'";
+    //  }
 
+     function calctwo()
+     {
+    document.getElementById("exm").innerHTML="oh 6";
+     }
+ 
+      function calcthree()
+     {
+    document.getElementById("exm").innerHTML="yee 10";
+     }
+ 
+// function ox()//
+ 
+//     {
+       
+//       if (total <6) {//평가를 위한 조건문
+//         document.getElementById("low").innerHTML="조금만 더 노력을";
+
+//       }else {
+//        if ( total >5 && total <9)
+
+//         document.getElementById("low").innerHTML="잘 합니다";
+
+//      else // 실행될 실행문이 한 줄뿐이라면 중괄호({})를 생략할 수 있음.
+
+//         document.getElementById("low").innerHTML="우수합니다";
+
+// }
+
+// }
 
 </script>
 </head>
@@ -136,6 +223,9 @@ document.getElementById("low").innerHTML = ""; // 초기화
     <h3 style="font-size: 40px;">산수 문제</h3>
     <h4 style="font-size: 25px;">답을 입력하고 채점 버튼을 누르세요.</h4>
     <hr>
+
+
+    <div >
     <form>
     <table>
         <tr>
@@ -216,10 +306,19 @@ document.getElementById("low").innerHTML = ""; // 초기화
         <td><hr></td>
         <td><hr></td>     
         </tr>
-</div>
 
+        <tr>
+        <td><hr></td>
+        <td id="exm"></td>
+        <td><hr></td>     
+        </tr>
+       <div id ="myAnimation"></div>
+
+   
+   
     </table>
     </form>
+    </div>
 
       <td><span id="low" style="font-size: 30px; color: green; text-align: center;""></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </body>
