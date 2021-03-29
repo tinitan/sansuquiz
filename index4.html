@@ -36,7 +36,7 @@ border-radius: 5px;
   width: 205px; height: 150px; /* 새담는 그룻 크기 */
   opacity:0;      /* container 0 숨기기 1 나타내기 */
   transition: 0.3s;  /* cubic-bezier(0,.43,1,0); /*captured 포시 */
-  animation: move 8s infinite alternate; /* butterfly 움직임 */
+  animation: mov 8s infinite alternate; /* butterfly 움직임 */
   animation-delay: -2s!important;
   transform:scale(1.0);
 }    
@@ -187,7 +187,7 @@ border-radius: 5px;
             document.getElementById("low").innerHTML = ""; // 초기화
             document.getElementById("exm").innerHTML=""; // 초기화
             document.getElementById("bee").style.opacity = "0";
-            
+            document.getElementById("bee").style.animation = "mov 8s infinite alternate";
         }
     }
 
@@ -213,6 +213,7 @@ function calcone() {
      {
          var x = document.getElementById("bee");
          x.style.opacity = "1";  
+         x.style.animation = "move 8s infinite alternate";
          document.getElementById("exm").innerHTML="최고 입니다";
      }
  
@@ -261,53 +262,53 @@ function calcone() {
         </tr>
         <tr>
             <td class="question">5*6</td>
-            <td><input class="answer" type="text" size="8"></td> <!--size는 최대 글자수--> <!-- 1번 문제 -->
+            <td><input class="answer" type="text" size="4"></td> <!--size는 최대 글자수--> <!-- 1번 문제 -->
             <td class="ox"></td>
         </tr>
         <tr>
             <td class="question">7+5*3</td>
-            <td><input class="answer" type="text" size="8"></td>
+            <td><input class="answer" type="text" size="4"></td>
             <td class="ox"></td>
         </tr>
         <tr>
             <td class="question">23*2</td>
-            <td><input class="answer" type="text" size="8"></td>
+            <td><input class="answer" type="text" size="4"></td>
             <td class="ox"></td>
         </tr>
         <tr>
             <td class="question">35-7</td>
-            <td><input class="answer" type="text" size="8"></td>
+            <td><input class="answer" type="text" size="4"></td>
             <td class="ox"></td>
         </tr>
         <tr>
             <td class="question">35-7</td>
-            <td><input class="answer" type="text" size="8"></td>
+            <td><input class="answer" type="text" size="4"></td>
             <td class="ox"></td>
         </tr>
         
         <tr>
             <td class="question">5*6</td>
-            <td><input class="answer" type="text" size="8"></td> <!--size는 최대 글자수--> <!-- 1번 문제 -->
+            <td><input class="answer" type="text" size="4"></td> <!--size는 최대 글자수--> <!-- 1번 문제 -->
             <td class="ox"></td>
         </tr>
         <tr>
             <td class="question">7+5*3</td>
-            <td><input class="answer" type="text" size="8"></td>
+            <td><input class="answer" type="text" size="4"></td>
             <td class="ox"></td>
         </tr>
         <tr>
             <td class="question">23*2</td>
-            <td><input class="answer" type="text" size="8"></td>
+            <td><input class="answer" type="text" size="4"></td>
             <td class="ox"></td>
         </tr>
         <tr>
             <td class="question">35-7</td>
-            <td><input class="answer" type="text" size="8"></td>
+            <td><input class="answer" type="text" size="4"></td>
             <td class="ox"></td>
         </tr>
         <tr>
             <td class="question">35-7</td>
-            <td><input class="answer" type="text" size="8"></td>
+            <td><input class="answer" type="text" size="4"></td>
             <td class="ox"></td>
         </tr>
 
